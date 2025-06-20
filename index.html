@@ -3,70 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>My Portfolio</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <button id="toggleTheme">Toggle Dark Mode</button>
+    <div class="container">
+      <h1>My Portfolio</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button id="toggleTheme" title="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="portfolio-intro">
-      <h2>Welcome to My Portfolio</h2>
-      <p>Here you can find a selection of my work and projects.</p>
-      <a href="assets/resume.pdf" download class="resume-btn">Download Resume</a>
+  <main class="container">
+    <section class="intro">
+      <h2>Welcome!</h2>
+      <p>Explore my work in Data, Machine Learning, and Web Development.</p>
+      <a href="assets/Malcolm_Buluku_Senior_DE_Resume.pdf" class="btn" download>📄 Download Resume</a>
     </section>
 
-    <section class="portfolio-controls">
-      <input type="text" id="searchInput" placeholder="Search projects..." onkeyup="searchProjects()" />
-      <div class="filter-controls">
+    <section class="controls">
+      <input type="text" id="searchInput" placeholder="Search projects..." />
+      <div class="buttons">
         <button onclick="filterProjects('all')">All</button>
         <button onclick="filterProjects('data')">Data</button>
-        <button onclick="filterProjects('ml')">Machine Learning</button>
+        <button onclick="filterProjects('ml')">ML</button>
         <button onclick="filterProjects('web')">Web</button>
-      </div>
-      <div class="sort-controls">
-        <button onclick="sortProjects('asc')">Sort A–Z</button>
-        <button onclick="sortProjects('desc')">Sort Z–A</button>
+        <button onclick="sortProjects('asc')">A–Z</button>
+        <button onclick="sortProjects('desc')">Z–A</button>
       </div>
     </section>
 
-    <section class="portfolio-projects">
-      <h3>Featured Projects</h3>
-
-      <div class="project data">
-        <h4>Data Engineering</h4>
-        <p>Description of project 1.</p>
+    <section class="projects" id="projects">
+      <div class="project-card data">
+        <h3>Data Engineering</h3>
+        <p>Built scalable pipelines with Apache Airflow & Spark.</p>
       </div>
-      <div class="project ml">
-        <h4>Machine Learning</h4>
-        <p>Description of project 2.</p>
+      <div class="project-card ml">
+        <h3>ML Classifier</h3>
+        <p>Designed a sentiment analysis model using Python & Sklearn.</p>
       </div>
-      <div class="project data">
-        <h4>Data Science</h4>
-        <p>Description of project 3.</p>
+      <div class="project-card data">
+        <h3>Data Dashboard</h3>
+        <p>Interactive dashboards with Power BI and Tableau.</p>
       </div>
-      <div class="project web">
-        <h4>Frontend Web App</h4>
-        <p>Description of project 4.</p>
+      <div class="project-card web">
+        <h3>Portfolio Website</h3>
+        <p>This site! Built with HTML, CSS & JS.</p>
       </div>
     </section>
 
-    <button id="loadMoreProjects">Load More Projects</button>
+    <button id="loadMoreProjects" class="btn">+ Load More</button>
   </main>
 
   <footer>
-    <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="scripts/scripts.js"></script>
