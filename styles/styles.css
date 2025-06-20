@@ -1,0 +1,112 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+.portfolio-intro,
+.portfolio-projects,
+.portfolio-controls {
+  margin-bottom: 20px;
+}
+
+.project {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 4px solid #007BFF;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"] {
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: white;
+}
+
+.resume-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.resume-btn:hover {
+  background-color: #218838;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f4f4f4;
+}
+
+body.dark-mode .project {
+  background-color: #2c2c2c;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #000;
+}
+
+body.dark-mode a,
+body.dark-mode button {
+  color: #fff;
+}
+body.dark-mode button {
+  background-color: #007BFF;
+}
