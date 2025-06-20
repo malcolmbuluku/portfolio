@@ -1,51 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Portfolio page loaded');
-
-  document.getElementById('loadMoreProjects').addEventListener('click', loadMoreProjects);
+  console.log("Site loaded");
 
   document.getElementById('toggleTheme').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
   });
+
+  document.getElementById('loadMoreProjects').addEventListener('click', () => {
+    const project = document.createElement('div');
+    project.className = 'project-card ml';
+    project.innerHTML = `
+      <h3>New ML Project</h3>
+      <p>New project loaded dynamically.</p>
+    `;
+    document.querySelector('#projects').appendChild(project);
+  });
 });
 
-function loadMoreProjects() {
-  const newProject = document.createElement('div');
-  newProject.className = 'project web';
-  newProject.innerHTML = '<h4>New Web Project</h4><p>Description of a new project dynamically added.</p>';
-  document.querySelector('.portfolio-projects').appendChild(newProject);
-}
-
 function filterProjects(category) {
-  const projects = document.querySelectorAll('.project');
-  projects.forEach(project => {
-    if (category === 'all' || project.classList.contains(category)) {
-      project.style.display = 'block';
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    if (category === 'all' || card.classList.contains(category)) {
+      card.style.display = 'block';
     } else {
-      project.style.display = 'none';
+      card.style.display = 'none';
     }
   });
 }
 
 function sortProjects(order) {
-  const container = document.querySelector('.portfolio-projects');
-  const projects = Array.from(container.querySelectorAll('.project'));
-
-  projects.sort((a, b) => {
-    const titleA = a.querySelector('h4').textContent.toLowerCase();
-    const titleB = b.querySelector('h4').textContent.toLowerCase();
+  const container = document.querySelector('.projects');
+  const cards = Array.from(container.children);
+  cards.sort((a, b) => {
+    const titleA = a.querySelector('h3').textContent.toLowerCase();
+    const titleB = b.querySelector('h3').textContent.toLowerCase();
     return order === 'asc' ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
   });
-
-  projects.forEach(project => container.appendChild(project));
+  cards.forEach(card => container.appendChild(card));
 }
 
 function searchProjects() {
   const input = document.getElementById('searchInput').value.toLowerCase();
-  const projects = document.querySelectorAll('.project');
-
-  projects.forEach(project => {
-    const title = project.querySelector('h4').textContent.toLowerCase();
-    const desc = project.querySelector('p').textContent.toLowerCase();
-    project.style.display = title.includes(input) || desc.includes(input) ? 'block' : 'none';
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(input) ? 'block' : 'none';
   });
 }
+
+document.getElementById('searchInput').addEventListener('keyup', searchProjects);
